@@ -1,0 +1,16 @@
+{
+  "name": "faza-email-service",
+  "version": "1.0.0",
+  "description": "Email service for Faza Training Center",
+  "main": "netlify/functions/send-email.js",
+  "scripts": {
+    "build": "netlify-lambda build src",
+    "serve": "netlify-lambda serve src"
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.7"
+  },
+  "devDependencies": {
+    "netlify-lambda": "^2.0.16"
+  }
+}
