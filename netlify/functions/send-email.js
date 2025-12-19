@@ -47,7 +47,6 @@ const getVerificationEmailTemplate = (data) => {
 };
 
 const getRegistrationEmailTemplate = (data) => {
-  const statusClass = data.status === 'pending' ? 'status-pending' : 'status-confirmed';
   const statusClassStyle = data.status === 'pending' 
     ? 'background-color: #fff3cd; color: #856404;' 
     : 'background-color: #d4edda; color: #155724;';
@@ -166,7 +165,7 @@ const getStatusUpdateEmailTemplate = (data) => {
 const createTransporter = () => {
   // For Gmail, you'll need to use an App Password
   // For production, you might want to use a service like SendGrid, Mailgun, etc.
-  return nodemailer.createTransporter({
+  return nodemailer.createTransport({ // Fixed: changed from createTransporter to createTransport
     host: process.env.SMTP_HOST || 'smtp.gmail.com',
     port: process.env.SMTP_PORT || 587,
     secure: false, // true for 465, false for other ports
